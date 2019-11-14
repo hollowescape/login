@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+
+        </title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class=" container"><hr>
+            <h1 class="text-success text-center">Registeration form </h1><hr>
+            <div class="col-lg-8 m-auto d-block">
+
+                <form action="login.htm" onsubmit="return validation()" class="bg-light">
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input type="text" name="user"class="form-control" id="firstn" autocomplete="off">
+                                <span id="firsts" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input type="text" name="user"class="form-control" id="lastn" autocomplete="off">
+                                <span id="lasts" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Username:</label>
+                                <input type="text" name="user"class="form-control" id="user" autocomplete="off">
+                                <span id="users" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input type="text" name="user"class="form-control" id="email" autocomplete="off">
+                                <span id="emails" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone No:</label>
+                                <input type="text" name="phone"class="form-control" id="phone"autocomplete="off">
+                                <span id="phones" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input type="password" name="pass"class="form-control" id="pass"autocomplete="off">
+                                <span id="passws" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password:</label>
+                                <input type="password" name="conpass"class="form-control" id="conpass"autocomplete="off">
+                                <span id="conpasws" class="text-danger font-weight-bold"></span>
+                            </div>
+                            
+                        <input type="submit" name ="submit" value="submit"class="btn btn-success" >
+                </form>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            function validation(){
+                var firstn=document.getElementById('firstn').value;
+                var lastn=document.getElementById('lastn').value;
+                var user=document.getElementById('user').value;
+                var email=document.getElementById('email').value;
+                var phone=document.getElementById('phone').value;
+                var pass=document.getElementById('pass').value;
+                var conpass=document.getElementById('conpass').value;
+                
+                if(firstn=="")
+                {
+                    document.getElementById('firsts').innerHTML="* please fill the first name";
+                    return false;
+                }
+                if(firstn.length<=2||firstn.length>10)
+                {
+                    document.getElementById('firsts').innerHTML="*first name should contain(2-10)characters";
+                    return false;
+                }
+                if(!isNaN(firstn))
+                {
+                    document.getElementById('firsts').innerHTML="* please fill valid first name";
+                    return false;                    
+                }
+                if(lastn=="")
+                {
+                    document.getElementById('lasts').innerHTML="* please fill the last name";
+                    return false;
+                }
+                if(lastn.length<=2||lastn.length>10)
+                {
+                    document.getElementById('lasts').innerHTML="*last name should contain(2-10)characters";
+                    return false;
+                }
+                if(!isNaN(lastn))
+                {
+                    document.getElementById('lasts').innerHTML="* please fill valid last name";
+                    return false;                    
+                }
+                if(user=="")
+                {
+                    document.getElementById('users').innerHTML="* please fill the user name";
+                    return false;
+                }
+                if(user.length<=2||user.length>20)
+                {
+                    document.getElementById('users').innerHTML="*user name should contain(2-10)characters";
+                    return false;
+                }
+
+                if(email=="")
+                {
+                    document.getElementById('emails').innerHTML="* please fill the email id";
+                    return false;
+                }
+                if(email.indexOf('@')<=0)
+                {
+                    document.getElementById('emails').innerHTML="* invalid email id";
+                    return false;
+                }
+                if((email.charAt(email.length-4)!='.')&&(email.charAt(email.length-3)!='.'))
+                {
+                    document.getElementById('emails').innerHTML="* invalid email id";
+                    return false;
+                }
+
+                if(phone=="")
+                {
+                    document.getElementById('phones').innerHTML="* please fill the phone number";
+                    return false;
+                }
+                if(isNaN(phone))
+                {
+                    document.getElementById('phones').innerHTML="* please fill the correct phone number";
+                    return false;
+                }
+                if(phone.length!==10)
+                {
+                    document.getElementById('phones').innerHTML="* please fill the correct (10 digit)phone number";
+                    return false;
+                }
+
+                if(pass=="")
+                {
+                    document.getElementById('passws').innerHTML="* please fill the password";
+                    return false;
+                }
+                if(pass.length<=4||pass.length>10)
+                {
+                    document.getElementById('passws').innerHTML="*password should contain(4-10)characters";
+                    return false;
+                }
+                if(conpass=="")
+                {
+                    document.getElementById('conpasws').innerHTML="* please fill the confrorm Password";
+                    return false;
+                }
+                if(pass!=conpass)
+                {
+                    document.getElementById('conpasws').innerHTML="* please enter same the Password";
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
